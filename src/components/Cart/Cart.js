@@ -1,8 +1,14 @@
-import Card from '../UI/Card';
-import classes from './Cart.module.css';
-import CartItem from './CartItem';
+import { useSelector } from "react-redux";
+import Card from "../UI/Card";
+import classes from "./Cart.module.css";
+import CartItem from "./CartItem";
 
-const Cart = (props) => {
+const Cart = () => {
+  const isVisible = useSelector((store) => store.cart.isCartVisible);
+
+  if (isVisible === false) {
+    return null;
+  }
   return (
     <Card className={classes.cart}>
       <h2>Your Shopping Cart</h2>
