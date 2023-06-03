@@ -28,6 +28,31 @@ const cartSlice = createSlice({
         state.items.push(newCartItem);
       }
     },
+    decrementQuantity(state, action) {
+      const cartItem = state.items.find(
+        (item) => item.id === action.payload.productId
+      );
+      if (!cartItem) {
+        return;
+      }
+      if (cartItem.quantity === 1) {
+        state.items = state.items.filter(
+          (item) => item.id !== action.payload.productId
+        );
+        return;
+      }
+      cartItem.quantity--;
+      cartItem.total = cartItem.quantity * cartItem.price;
+    },
+    incrementQuantity(state, action) {
+      const cartItem = state.items.find(
+        (item) => item.id === action.payload.productId
+      );
+      if (cartItem) {
+        cartItem.quantity++;
+        cartItem.total = cartItem.quantity * cartItem.price;
+      }
+    },
   },
 });
 
