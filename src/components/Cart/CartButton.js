@@ -1,10 +1,11 @@
 import { useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import classes from "./CartButton.module.css";
 import { actions } from "../../store/cart";
 
 const CartButton = () => {
   const dispatch = useDispatch();
+  const cartItemsCount = useSelector((store) => store.cart.items.length);
 
   const handleClick = useCallback(() => {
     dispatch(actions.toggleCartVisiblity());
@@ -13,7 +14,7 @@ const CartButton = () => {
   return (
     <button className={classes.button} onClick={handleClick}>
       <span>My Cart</span>
-      <span className={classes.badge}>1</span>
+      <span className={classes.badge}>{cartItemsCount}</span>
     </button>
   );
 };
