@@ -7,7 +7,7 @@ import { actions } from "../../store/cart";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const isVisible = useSelector((store) => store.cart.isCartVisible);
+  const isVisible = useSelector((store) => store.ui.isCartVisible);
   const items = useSelector((store) => store.cart.items);
   const handleDecrementQuantity = useCallback(
     (id) => {
@@ -23,7 +23,7 @@ const Cart = () => {
   );
 
   if (isVisible === false) {
-    return null;
+    return null;//todo
   }
 
   const cartItems = items.map((item) => (
