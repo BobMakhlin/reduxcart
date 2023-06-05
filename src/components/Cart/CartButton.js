@@ -1,20 +1,20 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./CartButton.module.css";
-import { actions } from "../../store/ui-slice";
+import { uiActions } from "../../store/ui-slice";
 
 const CartButton = () => {
   const dispatch = useDispatch();
-  const cartItemsCount = useSelector((store) => store.cart.items.length);
+  const totalQuantity = useSelector((store) => store.cart.totalQuantity);
 
   const handleClick = useCallback(() => {
-    dispatch(actions.toggleCartVisiblity());
+    dispatch(uiActions.toggleCartVisiblity());
   }, [dispatch]);
 
   return (
     <button className={classes.button} onClick={handleClick}>
       <span>My Cart</span>
-      <span className={classes.badge}>{cartItemsCount}</span>
+      <span className={classes.badge}>{totalQuantity}</span>
     </button>
   );
 };

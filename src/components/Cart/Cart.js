@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../UI/Card";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
-import { actions } from "../../store/cart-slice";
+import { cartActions } from "../../store/cart-slice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -11,13 +11,13 @@ const Cart = () => {
   const items = useSelector((store) => store.cart.items);
   const handleDecrementQuantity = useCallback(
     (id) => {
-      dispatch(actions.decrementQuantity({ productId: id }));
+      dispatch(cartActions.decrementQuantity({ productId: id }));
     },
     [dispatch]
   );
   const handleIncrementQuantity = useCallback(
     (id) => {
-      dispatch(actions.incrementQuantity({ productId: id }));
+      dispatch(cartActions.incrementQuantity({ productId: id }));
     },
     [dispatch]
   );

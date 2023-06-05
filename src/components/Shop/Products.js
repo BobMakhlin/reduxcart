@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { actions } from "../../store/cart-slice";
+import { cartActions } from "../../store/cart-slice";
 import ProductItem from "./ProductItem";
 import classes from "./Products.module.css";
 
@@ -22,7 +22,7 @@ const Products = () => {
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
-    dispatch(actions.addProduct({ product }));
+    dispatch(cartActions.addProduct({ product }));
   };
 
   const productItems = ITEMS.map((item) => (
