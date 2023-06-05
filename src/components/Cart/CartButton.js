@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./CartButton.module.css";
-import { actions } from "../../store/cart";
+import { actions } from "../../store/ui-slice";
 
 const CartButton = () => {
   const dispatch = useDispatch();

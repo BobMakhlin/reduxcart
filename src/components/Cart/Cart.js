@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../UI/Card";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
-import { actions } from "../../store/cart";
+import { actions } from "../../store/cart-slice";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const isVisible = useSelector((store) => store.cart.isCartVisible);
+  const isVisible = useSelector((store) => store.ui.isCartVisible);
   const items = useSelector((store) => store.cart.items);
   const handleDecrementQuantity = useCallback(
     (id) => {
