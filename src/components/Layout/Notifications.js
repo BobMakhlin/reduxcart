@@ -21,7 +21,7 @@ const Notifications = () => {
       title={item.title}
       message={item.message}
       status={item.status}
-      autoCloseDuration={1000}
+      autoCloseDuration={item.duration ?? 1000}
       onClose={handleNotificationClose}
     />
   ));

@@ -14,14 +14,26 @@ const uiSlice = createSlice({
       state.isCartVisible = !state.isCartVisible;
     },
     showErrorNotification(state, action) {
-      const { title, message } = action.payload;
+      const { title, message, duration } = action.payload;
       const id = uniqueId(PREFIX);
-      state.notifications.push({ id, title, message, status: "error" });
+      state.notifications.push({
+        id,
+        title,
+        message,
+        duration,
+        status: "error",
+      });
     },
     showSuccessNotification(state, action) {
-      const { title, message } = action.payload;
+      const { title, message, duration } = action.payload;
       const id = uniqueId(PREFIX);
-      state.notifications.push({ id, title, message, status: "success" });
+      state.notifications.push({
+        id,
+        title,
+        message,
+        duration,
+        status: "success",
+      });
     },
     hideNotification(state, action) {
       state.notifications = state.notifications.filter(
